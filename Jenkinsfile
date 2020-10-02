@@ -22,7 +22,7 @@ pipeline {
                         sh 'ssh -o StrictHostKeyChecking=no bp000383@ela1.cscs.ch uptime'
                         sh 'ssh -v bp000383@ela1.cscs.ch "mkdir -p ./bin/new_code" '
                         sh 'scp * bp000383@ela1.cscs.ch:~/bin/new_code'
-                        sh 'ssh -v bp000383@ela1.cscs.ch "./bin/execute_daint.sh" '
+                        sh 'ssh -v bp000383@ela1.cscs.ch "./bin/test_script.sh" '
                     }
                 }
             }
