@@ -17,7 +17,7 @@ pipeline {
             }
             stage('Deploy') {
                 steps {
-                    sshagent(credentials : ['dbd5d967-04bd-11eb-b4c0-fa163e0fc7ce']) {                    
+                    sshagent(credentials : ['ci-ssh-agent-support']) {                    
                         echo 'This is the Deploy Stage'
                         sh 'ssh -o StrictHostKeyChecking=no bp000383@ela1.cscs.ch uptime'
                         sh 'ssh -v bp000383@ela1.cscs.ch "mkdir -p ./bin/new_code" '
