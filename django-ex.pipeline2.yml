@@ -1,0 +1,13 @@
+# django-ex.pipeline2.yml
+apiVersion: v1
+kind: "BuildConfig"
+metadata:
+  name: "django-ex-pipeline2"
+spec:
+  source:
+     git:
+        uri: "https://github.com/allemaos/testJenkins"
+        ref: "master"
+  strategy:
+    jenkinsPipelineStrategy:
+       jenkinsfilePath: Jenkinsfile

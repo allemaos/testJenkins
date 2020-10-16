@@ -1,0 +1,19 @@
+# django-ex.pipeline1.yml
+apiVersion: v1
+kind: "BuildConfig"
+metadata:
+  name: "django-ex-pipeline1"
+spec:
+  strategy:
+    jenkinsPipelineStrategy:
+       jenkinsfile: |-
+        node() {
+          stage('build'){
+            // some block
+          }
+          openshiftBuild(buildConfig: 'django-ex-pipeline1', showBuildLogs: 'true')
+          stage 'deploy'
+          openshiftDeploy(deploymentConfig: 'django-ex-pipeline1')
+          openshiftScale(deploymentConfig: 'django-ex-pipeline1',replicaCount: '2')
+        }
+    type: JenkinsPipeline
